@@ -1,0 +1,26 @@
+Ejercicio 2
+a) ¿Qué recorridos conoce para recorrer en profundidad un árbol general? Explique brevemente.
+
+RTA:
+El recorrido en preorden visita primero la raíz del árbol, luego visita el subárbol izquierdo y finalmente visita el subárbol derecho.
+El recorrido en inorden visita primero el subárbol izquierdo, luego la raíz del árbol y finalmente el subárbol derecho. 
+El recorrido en postorden visita primero los subárboles izquierdo y derecho y finalmente la raíz del árbol.
+----------------------------------------------------
+b) ¿Qué recorridos conoce para recorrer por niveles un árbol general? Explique brevemente.
+
+RTA:Solo hay uno, el de apilar los hijos de cada nodo, que usa un null para saber cuando pasamos de nivel.
+----------------------------------------------------
+c) ¿Existe alguna diferencia entre los recorridos preorden, postorden, inorden para recorrer los
+árboles generales respecto de los árboles binarios? Justifique su respuesta.
+
+RTA:Si, la diferencia es que no hay solo HI y HD, entonces para recorrer hacemos que HD sean todos lo hijos 
+que no sean el primero.
+----------------------------------------------------
+d) ¿Existe alguna noción de orden entre los elementos de un árbol general? Justifique su respuesta.
+
+RTA:Depende en cada arbol indiferente de si es general o no.
+----------------------------------------------------
+e) En un árbol general se define el grado de un nodo como el número de hijos de ese nodo y el grado
+del árbol como el máximo de los grados de los nodos del árbol. ¿Qué relación encuentra entre los
+Árboles Binarios sin tener en cuenta la implementación? Justifique su respuesta.
+RTA: Los arboles binarios tienen grado 2, ya que maximo pueden tener 2 hijos.
