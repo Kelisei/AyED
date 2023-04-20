@@ -24,20 +24,23 @@ public class Main {
         arbol.agregarHijo(new ArbolGeneral(36));
         arbol.agregarHijo(new ArbolGeneral(12));
         arbol.agregarHijo(new ArbolGeneral(5));
-        /*
+        
         RecorridosAg xd = new RecorridosAg();
+        /*
         ListaGenerica l = xd.numerosImparesMayoresQuePreOrden(arbol, 2);
         l.comenzar();
         while (!l.fin()) {
             System.out.println(l.proximo());
         }
+        */
         System.out.println("");
-        l = xd.numerosImparesMayoresQueInOrden(arbol, 2);
+        ListaGenerica l = xd.numerosImparesMayoresQueInOrden(arbol, 2);
         l.comenzar();
         while (!l.fin()) {
             System.out.println(l.proximo());
         }
         System.out.println("");
+        /*
         l = xd.numerosImparesMayoresQuePostOrden(arbol, 2);
         l.comenzar();
         while (!l.fin()) {
@@ -51,6 +54,6 @@ public class Main {
         }*/
         
         System.out.println(arbol.nivel(-1));
-        
+        System.out.println(arbol.ancho());
     }
 }

@@ -40,21 +40,18 @@ public class RecorridosAg {
 
     private void numerosImparesMayoresQueInOrden(ListaGenerica<Integer> lista, ArbolGeneral<Integer> a, Integer n) {
         if (!a.esVacio()) {
-            if (a.tieneHijos()) {
-                ListaGenerica<ArbolGeneral<Integer>> hijos = a.getHijos();
+            ListaGenerica<ArbolGeneral<Integer>> hijos = a.getHijos();
+            if(!hijos.esVacia()){
                 hijos.comenzar();
                 numerosImparesMayoresQueInOrden(lista, hijos.proximo(), n);
-                if ((a.getDato() % 2 != 0) && (a.getDato() > n)) {
-                    lista.agregarFinal(a.getDato());
-                }
-                while (!hijos.fin()) {
-                    numerosImparesMayoresQueInOrden(lista, hijos.proximo(), n);
-                }
-            } else {
-                if ((a.getDato() % 2 != 0) && (a.getDato() > n)) {
-                    lista.agregarFinal(a.getDato());
-                }
             }
+            if ((a.getDato() % 2 != 0) && (a.getDato() > n)) {
+                lista.agregarFinal(a.getDato());
+            }
+            while (!hijos.fin()) {
+                numerosImparesMayoresQueInOrden(lista, hijos.proximo(), n);
+            }
+
         }
     }
 

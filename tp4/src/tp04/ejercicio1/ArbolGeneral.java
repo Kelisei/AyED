@@ -76,23 +76,20 @@ public class ArbolGeneral<T> {
     }
 
     public Integer altura() {
-        if (!this.esVacio()) {
-            if (this.esHoja()) {
-                return 0;
-            } else {
-                ListaGenerica<ArbolGeneral<T>> hijos = this.getHijos();
-                hijos.comenzar();
-                int max = 0;
-                while (!hijos.fin()) {
-                    ArbolGeneral<T> hijo = hijos.proximo();
-                    if (hijo.altura() > max) {
-                        max = hijo.altura();
-                    }
+        if (this.esHoja()) {
+            return 0;
+        } else {
+            ListaGenerica<ArbolGeneral<T>> hijos = this.getHijos();
+            hijos.comenzar();
+            int max = 0;
+            while (!hijos.fin()) {
+                ArbolGeneral<T> hijo = hijos.proximo();
+                if (hijo.altura() > max) {
+                    max = hijo.altura();
                 }
-                return max + 1;
             }
+            return max + 1;
         }
-        return 0;
     }
 
     public Integer nivel(T dato) {
@@ -113,7 +110,7 @@ public class ArbolGeneral<T> {
                         cola.encolar(hijos.proximo());
                     }
                 }
-                System.out.println("DATO:"+arbol.getDato());
+                System.out.println("DATO:" + arbol.getDato());
                 T datoActual = arbol.getDato();
                 if (datoActual != null && datoActual.equals(dato)) {
                     encontrado = true;
@@ -132,8 +129,30 @@ public class ArbolGeneral<T> {
     }
 
     public Integer ancho() {
-        // Falta implementar..
-        return 0;
+        ColaGenerica<ArbolGeneral<T>> cola = new ColaGenerica();
+        ArbolGeneral<T> arbol = null;
+        cola.encolar(this);
+        cola.encolar(null);
+        int ancho = -1;
+        int anchoNivel = 0;
+        while (!cola.esVacia()) {
+            arbol = cola.desencolar();
+            if (arbol != null) {
+                ListaGenerica<ArbolGeneral<T>> hijos = arbol.hijos;
+                hijos.comenzar();
+                while (!hijos.fin()) {
+                    cola.encolar(hijos.proximo());
+                }
+                anchoNivel++;
+            } else{
+                if(!cola.esVacia()){
+                   cola.encolar(null);
+                }
+                ancho = Math.max(ancho, anchoNivel);
+                anchoNivel = 0;
+            }
+        }
+        return ancho;
     }
 
 }
