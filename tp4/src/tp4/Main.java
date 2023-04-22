@@ -17,43 +17,14 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        ArbolGeneral<Integer> arbol = new ArbolGeneral(11);
-        arbol.agregarHijo(new ArbolGeneral(32));
-        arbol.agregarHijo(new ArbolGeneral(42));
-        arbol.agregarHijo(new ArbolGeneral(36));
-        arbol.agregarHijo(new ArbolGeneral(12));
-        arbol.agregarHijo(new ArbolGeneral(5));
-        
-        RecorridosAg xd = new RecorridosAg();
-        /*
-        ListaGenerica l = xd.numerosImparesMayoresQuePreOrden(arbol, 2);
-        l.comenzar();
-        while (!l.fin()) {
-            System.out.println(l.proximo());
-        }
-        */
-        System.out.println("");
-        ListaGenerica l = xd.numerosImparesMayoresQueInOrden(arbol, 2);
-        l.comenzar();
-        while (!l.fin()) {
-            System.out.println(l.proximo());
-        }
-        System.out.println("");
-        /*
-        l = xd.numerosImparesMayoresQuePostOrden(arbol, 2);
-        l.comenzar();
-        while (!l.fin()) {
-            System.out.println(l.proximo());
-        }
-        System.out.println("");
-        l = xd.numerosImparesMayoresQuePorNiveles(arbol, 2);
-        l.comenzar();
-        while (!l.fin()) {
-            System.out.println(l.proximo());
-        }*/
-        
-        System.out.println(arbol.nivel(-1));
-        System.out.println(arbol.ancho());
+        AnalizadorArbol anal = new AnalizadorArbol();
+        ArbolGeneral<AreaEmpresa> arbol = new ArbolGeneral(new AreaEmpresa("s",00));
+        arbol.agregarHijo(new ArbolGeneral(new AreaEmpresa("s",50)));
+        arbol.agregarHijo(new ArbolGeneral(new AreaEmpresa("s",75)));
+        arbol.agregarHijo(new ArbolGeneral(new AreaEmpresa("s",125)));
+        arbol.agregarHijo(new ArbolGeneral(new AreaEmpresa("s",200)));
+        arbol.agregarHijo(new ArbolGeneral(new AreaEmpresa("s",300)));
+        arbol.agregarHijo(new ArbolGeneral(new AreaEmpresa("s",550)));
+        System.out.println(anal.devolverMaximoPromedio(arbol));
     }
 }

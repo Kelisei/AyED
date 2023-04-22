@@ -26,37 +26,19 @@ public class Tp4 {
         arbol.agregarHijo(new ArbolGeneral(36));
         arbol.agregarHijo(new ArbolGeneral(12));
         arbol.agregarHijo(new ArbolGeneral(5));
+        System.out.println(arbol.esAncestro(11, 11));
         
-        RecorridosAg xd = new RecorridosAg();
-        /*
-        ListaGenerica l = xd.numerosImparesMayoresQuePreOrden(arbol, 2);
-        l.comenzar();
-        while (!l.fin()) {
-            System.out.println(l.proximo());
-        }
-        */
-        System.out.println("");
-        ListaGenerica l = xd.numerosImparesMayoresQueInOrden(arbol, 2);
-        l.comenzar();
-        while (!l.fin()) {
-            System.out.println(l.proximo());
-        }
-        System.out.println("");
-        /*
-        l = xd.numerosImparesMayoresQuePostOrden(arbol, 2);
-        l.comenzar();
-        while (!l.fin()) {
-            System.out.println(l.proximo());
-        }
-        System.out.println("");
-        l = xd.numerosImparesMayoresQuePorNiveles(arbol, 2);
-        l.comenzar();
-        while (!l.fin()) {
-            System.out.println(l.proximo());
-        }
-        */
-        System.out.println(arbol.nivel(-1));
-        System.out.println("Ancho:"+arbol.ancho());
+        ArbolGeneral<Casa> casas = new ArbolGeneral(new Casa("X"));
+        ArbolGeneral<Casa> subArbolY = new ArbolGeneral(new Casa("Y"));
+        subArbolY.agregarHijo(new ArbolGeneral(new Casa("Z")));
+        subArbolY.agregarHijo(new ArbolGeneral(new Casa("W")));
+        subArbolY.agregarHijo(new ArbolGeneral(new Casa("Z")));
+        subArbolY.agregarHijo(new ArbolGeneral(new Casa("W")));
+        casas.agregarHijo(subArbolY);
+        casas.agregarHijo(new ArbolGeneral(new Casa("Z")));
+        casas.agregarHijo(new ArbolGeneral(new Casa("W")));
+        RedDeAguaPotable red = new RedDeAguaPotable(casas);
+        System.out.println(red.minimoCaudal(25));
     }
     
 }

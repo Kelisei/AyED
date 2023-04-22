@@ -154,5 +154,36 @@ public class ArbolGeneral<T> {
         }
         return ancho;
     }
-
+    /*
+    Ejercicio 6
+    Se dice que un nodo n es ancestro de un nodo m si existe un camino desde n a m.
+    Se dice que un nodo n es descendiente de un nodo m si existe un camino desde m a n.
+    Implemente un método en la clase ArbolGeneral con la siguiente firma:
+    public Boolean esAncestro(T a, T b): devuelve true si el valor a es ancestro del valor b.
+    El cual determine si un valor a es ancestro de un valor b.
+    */
+   public Boolean esAncestro(T a, T b){
+       if (a.equals(b)){
+           return false;
+       }
+       ArbolGeneral<T> subArbolA = encontrarArbol(this, a);
+       if(subArbolA == null){
+           return false;
+       } else {
+           return (encontrarArbol(subArbolA, b) != null);
+       }
+   }
+   private ArbolGeneral<T> encontrarArbol(ArbolGeneral<T> arbol, T dato){
+       if (arbol.getDato().equals(dato)){
+           return arbol;
+       } else if (arbol.tieneHijos()){
+           ListaGenerica<ArbolGeneral<T>> hijos = arbol.getHijos();
+           ArbolGeneral<T> aux = null;
+           while(aux == null && !hijos.fin()){
+               aux = encontrarArbol(hijos.proximo(), dato);
+           }
+           return aux;
+       } 
+       return null;
+   }
 }
