@@ -78,21 +78,12 @@ public class ArbolBinario<T> {
     }
 
     public int contarHojas() {
-        if (this == null) {
+        if(this.esHoja()){
+            return 1;
+        } else if (this.esVacio()){
             return 0;
         } else {
-            if (this.esHoja()) {
-                return 1;
-            } else {
-                int total = 0;
-                if (this.tieneHijoDerecho()) {
-                    total += this.hijoDerecho.contarHojas();
-                }
-                if (this.tieneHijoIzquierdo()) {
-                    total += this.hijoIzquierdo.contarHojas();
-                }
-                return total;
-            }
+            return this.hijoDerecho.contarHojas() + this.hijoIzquierdo.contarHojas();
         }
     }
 

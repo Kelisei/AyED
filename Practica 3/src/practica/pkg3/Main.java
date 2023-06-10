@@ -34,13 +34,17 @@ public class Main {
         ArbolBinario<Integer> arbol = new ArbolBinario<>(11);
         ArbolBinario<Integer> nodo = new ArbolBinario(32);
         arbol.agregarHijoDerecho(nodo);
-        nodo = new ArbolBinario(23);
+        nodo = new ArbolBinario();
         arbol.getHijoDerecho().agregarHijoDerecho(nodo);
-        nodo = new ArbolBinario(12);
+        nodo = new ArbolBinario();
         arbol.getHijoDerecho().agregarHijoIzquierdo(nodo);
         nodo = new ArbolBinario(69);
         arbol.agregarHijoIzquierdo(nodo);
-       
+        recorrido(arbol);
+        System.out.println(arbol.contarHojas());
+        
+        
+        /*
         System.out.println(arbol.contarHojas());
         recorrido(arbol);
         System.out.println("");
@@ -48,7 +52,7 @@ public class Main {
         System.out.println("");
         recorrido(arbol);
         arbol.entreNiveles(0, 2);
-        /*
+        
         ContadorArbol ca = new ContadorArbol(arbol);
         ListaEnlazadaGenerica<Integer> listaIn = ca.numerosParesInOrden();
         while(!listaIn.fin()){
